@@ -5,7 +5,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
-<div style='text-align:center; font-size:48px'>Wie Is Niet?</div>
+<div id='vraag' style='text-align:center; font-size:48px'></div>
 <div id='div0' style='position:absolute; top:20%; right:50%; width:50%; height:30%; overflow:hidden;' onClick="window.location.reload();return false;"></div>
 <div id='div1' style='position:absolute; top:20%; left:50%; width:50%; height:30%; overflow:hidden;' onClick="window.location.reload();return false;"></div>
 <div id='div2' style='position:absolute; top:50%; right:50%; width:50%; height:30%; overflow:hidden;' onClick="window.location.reload();return false;"></div>
@@ -13,11 +13,11 @@
 <div style='position:absolute; width:100%; top:82%; text-align:center; font-size:48px;'>300</div>
 <script>
 $.get("http://www.bureauhaan.nl/vooroordelen/qmaster.php", function( vraag ) {
-document.getElementById('div0').innerHTML = '<img style="width:100%;" src="' + vraag.mens0.foto +'" title="' + vraag.mens0.naam + '">';
-document.getElementById('div1').innerHTML = '<img style="width:100%;" src="' + vraag.mens1.foto +'" title="' + vraag.mens1.naam + '">';
-document.getElementById('div2').innerHTML = '<img style="width:100%;" src="' + vraag.mens2.foto +'" title="' + vraag.mens2.naam + '">';
-document.getElementById('div3').innerHTML = '<img style="width:100%;" src="' + vraag.mens3.foto +'" title="' + vraag.mens3.naam + '">';
-alert ("vraag: " + vraag);
+document.getElementById('div0').innerHTML = '<img style="width:100%;" src="' + vraag.mens0.foto +'" title="' + vraag.mens0.hint + '">';
+document.getElementById('div1').innerHTML = '<img style="width:100%;" src="' + vraag.mens1.foto +'" title="' + vraag.mens1.hint + '">';
+document.getElementById('div2').innerHTML = '<img style="width:100%;" src="' + vraag.mens2.foto +'" title="' + vraag.mens2.hint + '">';
+document.getElementById('div3').innerHTML = '<img style="width:100%;" src="' + vraag.mens3.foto +'" title="' + vraag.mens3.hint + '">';
+document.getElementById('vraag').innerHTML = vraag.mens0.basisvraag + vraag.mens0.basiswaarde;
 }, "json");
 </script>
 </body>
