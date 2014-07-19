@@ -5,7 +5,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
-<div id='vraag' style='text-align:center; font-size:48px'></div>
+<div id='vraag' style='text-align:center; font-size:35px'></div>
 <div id='div0' style='position:absolute; top:20%; right:50%; width:50%; height:30%; overflow:hidden;' onClick="window.location.reload();return false;"></div>
 <div id='div1' style='position:absolute; top:20%; left:50%; width:50%; height:30%; overflow:hidden;' onClick="window.location.reload();return false;"></div>
 <div id='div2' style='position:absolute; top:50%; right:50%; width:50%; height:30%; overflow:hidden;' onClick="window.location.reload();return false;"></div>
@@ -17,7 +17,7 @@ document.getElementById('div0').innerHTML = '<img style="width:100%;" src="' + v
 document.getElementById('div1').innerHTML = '<img style="width:100%;" src="' + vraag.mens1.foto +'" title="' + vraag.mens1.hint + '">';
 document.getElementById('div2').innerHTML = '<img style="width:100%;" src="' + vraag.mens2.foto +'" title="' + vraag.mens2.hint + '">';
 document.getElementById('div3').innerHTML = '<img style="width:100%;" src="' + vraag.mens3.foto +'" title="' + vraag.mens3.hint + '">';
-document.getElementById('vraag').innerHTML = vraag.mens0.basisvraag + vraag.mens0.basiswaarde;
+document.getElementById('vraag').innerHTML = vraag.mens0.basisvraag + vraag.mens0.basiswaarde + "?";
 }, "json");
 </script>
 </body>
