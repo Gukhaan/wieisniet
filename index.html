@@ -1,6 +1,24 @@
 <html>
+<head>
+<title>Wie Niet</title>
+<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
 <body>
-This is another line added.
-Hello <b>world</b>
+<div style='text-align:center; font-size:48px'>Wie Is Niet?</div>
+<div id='div1' style='position:absolute; top:20%; right:50%; width:50%; height:30%; overflow:hidden; border:1px; border-style:solid;'></div>
+<div style='position:absolute; top:20%; left:50%; width:50%; height:30%; overflow:hidden;'>
+<img style='width:100%;' src='http://www.kafka-kring.nl/wordpress/wp-content/uploads/Kager-kl.jpg'></div>
+<div style='position:absolute; top:50%; right:50%; width:50%; height:30%; overflow:hidden;'>
+<img style='width:100%;' src='http://www.hindu.com/lf/2005/03/27/images/2005032703610201.jpg'></div>
+<div style='position:absolute; top:50%; left:50%; width:50%; height:30%; overflow:hidden;'>
+<img style='width:100%;' src='http://m.c.lnkd.licdn.com/mpr/pub/image-m3DBp1jIU8_9iLFSTTtH6LxdWf7uelrlCgtKJMEIWBDf5cU-m3DKJz8IWXeuVKitZm5O/leonoor-haan.jpg'></div>
+<div style='position:absolute; width:100%; top:82%; text-align:center; font-size:48px;'>300</div>
+<script>
+$.get("http://www.bureauhaan.nl/vooroordelen/qmaster.php", function( vraag ) {
+document.getElementById('div1').innerHTML = '<img style="width:100%;" src="' + vraag.foto +'" title="' + vraag.naam + '">';
+alert ("vraag: " + naampje);
+}, "json");
+</script>
 </body>
-<html>
+</html>
