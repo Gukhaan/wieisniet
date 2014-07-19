@@ -6,18 +6,18 @@
 </head>
 <body>
 <div style='text-align:center; font-size:48px'>Wie Is Niet?</div>
-<div id='div1' style='position:absolute; top:20%; right:50%; width:50%; height:30%; overflow:hidden; border:1px; border-style:solid;'></div>
-<div style='position:absolute; top:20%; left:50%; width:50%; height:30%; overflow:hidden;'>
-<img style='width:100%;' src='http://www.kafka-kring.nl/wordpress/wp-content/uploads/Kager-kl.jpg'></div>
-<div style='position:absolute; top:50%; right:50%; width:50%; height:30%; overflow:hidden;'>
-<img style='width:100%;' src='http://www.hindu.com/lf/2005/03/27/images/2005032703610201.jpg'></div>
-<div style='position:absolute; top:50%; left:50%; width:50%; height:30%; overflow:hidden;'>
-<img style='width:100%;' src='http://m.c.lnkd.licdn.com/mpr/pub/image-m3DBp1jIU8_9iLFSTTtH6LxdWf7uelrlCgtKJMEIWBDf5cU-m3DKJz8IWXeuVKitZm5O/leonoor-haan.jpg'></div>
+<div id='div0' style='position:absolute; top:20%; right:50%; width:50%; height:30%; overflow:hidden;' onClick="window.location.reload();return false;"></div>
+<div id='div1' style='position:absolute; top:20%; left:50%; width:50%; height:30%; overflow:hidden;' onClick="window.location.reload();return false;"></div>
+<div id='div2' style='position:absolute; top:50%; right:50%; width:50%; height:30%; overflow:hidden;' onClick="window.location.reload();return false;"></div>
+<div id='div3'style='position:absolute; top:50%; left:50%; width:50%; height:30%; overflow:hidden;' onClick="window.location.reload();return false;"></div>
 <div style='position:absolute; width:100%; top:82%; text-align:center; font-size:48px;'>300</div>
 <script>
 $.get("http://www.bureauhaan.nl/vooroordelen/qmaster.php", function( vraag ) {
-document.getElementById('div1').innerHTML = '<img style="width:100%;" src="' + vraag.foto +'" title="' + vraag.naam + '">';
-alert ("vraag: " + naampje);
+document.getElementById('div0').innerHTML = '<img style="width:100%;" src="' + vraag.mens0.foto +'" title="' + vraag.mens0.naam + '">';
+document.getElementById('div1').innerHTML = '<img style="width:100%;" src="' + vraag.mens1.foto +'" title="' + vraag.mens1.naam + '">';
+document.getElementById('div2').innerHTML = '<img style="width:100%;" src="' + vraag.mens2.foto +'" title="' + vraag.mens2.naam + '">';
+document.getElementById('div3').innerHTML = '<img style="width:100%;" src="' + vraag.mens3.foto +'" title="' + vraag.mens3.naam + '">';
+alert ("vraag: " + vraag);
 }, "json");
 </script>
 </body>
