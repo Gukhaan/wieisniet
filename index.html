@@ -4,21 +4,32 @@
 <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
-<body>
-<div id='vraag' style='text-align:center; font-size:35px'></div>
-<div id='div0' style='position:absolute; top:20%; right:50%; width:50%; height:30%; overflow:hidden;' onClick="window.location.reload();return false;"></div>
-<div id='div1' style='position:absolute; top:20%; left:50%; width:50%; height:30%; overflow:hidden;' onClick="window.location.reload();return false;"></div>
-<div id='div2' style='position:absolute; top:50%; right:50%; width:50%; height:30%; overflow:hidden;' onClick="window.location.reload();return false;"></div>
-<div id='div3'style='position:absolute; top:50%; left:50%; width:50%; height:30%; overflow:hidden;' onClick="window.location.reload();return false;"></div>
-<div style='position:absolute; width:100%; top:82%; text-align:center; font-size:48px;'>300</div>
+
+<div id='vraagtekst' style='text-align:center; font-size:20px'></div>
+<div id='div0' style='position:absolute; top:20%; right:50%; width:50%; height:30%; opacity:50%; overflow:hidden;' onClick="oplossing()"></div>
+<div id='div1' style='position:absolute; top:20%; left:50%; width:50%; height:30%; overflow:hidden;' onClick="oplossing()"></div>
+<div id='div2' style='position:absolute; top:50%; right:50%; width:50%; height:30%; overflow:hidden;' onClick="oplossing()"></div>
+<div id='div3'style='position:absolute; top:50%; left:50%; width:50%; height:30%; overflow:hidden;' onClick="oplossing()"></div>
+<div style='position:absolute; width:100%; top:82%; text-align:center; font-size:30px;' onClick="window.location.reload();return false;">35 punten</div>
 <script>
+var huidigeVraag={};
+function opzoeken(){
 $.get("http://www.bureauhaan.nl/vooroordelen/qmaster.php", function( vraag ) {
 document.getElementById('div0').innerHTML = '<img style="width:100%;" src="' + vraag.mens0.foto +'" title="' + vraag.mens0.hint + '">';
 document.getElementById('div1').innerHTML = '<img style="width:100%;" src="' + vraag.mens1.foto +'" title="' + vraag.mens1.hint + '">';
 document.getElementById('div2').innerHTML = '<img style="width:100%;" src="' + vraag.mens2.foto +'" title="' + vraag.mens2.hint + '">';
 document.getElementById('div3').innerHTML = '<img style="width:100%;" src="' + vraag.mens3.foto +'" title="' + vraag.mens3.hint + '">';
-document.getElementById('vraag').innerHTML = vraag.mens0.basisvraag + vraag.mens0.basiswaarde + "?";
-}, "json");
+document.getElementById('vraagtekst').innerHTML = vraag.mens0.basisvraag + vraag.mens0.basiswaarde + "?"; 
+huidigeVraag = vraag;
+}, "json");}
+
+function oplossing(){
+document.getElementById('div0').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.mens0.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.mens0.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.mens0.naam+' '+huidigeVraag.mens0.achternaam+'<br>'+huidigeVraag.mens0.basiswaarde+'</b>';
+document.getElementById('div1').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.mens1.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.mens1.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.mens1.naam+' '+huidigeVraag.mens1.achternaam+'<br>'+huidigeVraag.mens1.basiswaarde+'</b>';
+document.getElementById('div2').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.mens2.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.mens2.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.mens2.naam+' '+huidigeVraag.mens2.achternaam+'<br>'+huidigeVraag.mens2.basiswaarde+'</b>';
+document.getElementById('div3').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.mens3.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.mens3.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.mens3.naam+' '+huidigeVraag.mens3.achternaam+'<br>'+huidigeVraag.mens3.basiswaarde+'</b>';
+}
 </script>
+<body onload="opzoeken()">
 </body>
 </html>
