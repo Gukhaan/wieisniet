@@ -15,19 +15,19 @@
 var huidigeVraag={};
 function opzoeken(){
 $.get("http://www.bureauhaan.nl/vooroordelen/qmaster.php", function( vraag ) {
-document.getElementById('div0').innerHTML = '<img style="width:100%;" src="' + vraag.mens0.foto +'" title="' + vraag.mens0.hint + '">';
-document.getElementById('div1').innerHTML = '<img style="width:100%;" src="' + vraag.mens1.foto +'" title="' + vraag.mens1.hint + '">';
-document.getElementById('div2').innerHTML = '<img style="width:100%;" src="' + vraag.mens2.foto +'" title="' + vraag.mens2.hint + '">';
-document.getElementById('div3').innerHTML = '<img style="width:100%;" src="' + vraag.mens3.foto +'" title="' + vraag.mens3.hint + '">';
-document.getElementById('vraagtekst').innerHTML = vraag.mens0.basisvraag + vraag.mens0.basiswaarde + "?"; 
+document.getElementById('div0').innerHTML = '<img style="width:100%;" src="' + vraag.vak0.foto +'" title="' + vraag.vak0.hint + '">';
+document.getElementById('div1').innerHTML = '<img style="width:100%;" src="' + vraag.vak1.foto +'" title="' + vraag.vak1.hint + '">';
+document.getElementById('div2').innerHTML = '<img style="width:100%;" src="' + vraag.vak2.foto +'" title="' + vraag.vak2.hint + '">';
+document.getElementById('div3').innerHTML = '<img style="width:100%;" src="' + vraag.vak3.foto +'" title="' + vraag.vak3.hint + '">';
+document.getElementById('vraagtekst').innerHTML = vraag.vraaginfo.basisvraag + vraag.vraaginfo.basiswaarde + "?"; 
 huidigeVraag = vraag;
 }, "json");}
 
 function oplossing(){
-document.getElementById('div0').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.mens0.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.mens0.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.mens0.naam+' '+huidigeVraag.mens0.achternaam+'<br>'+huidigeVraag.mens0.basiswaarde+'</b>';
-document.getElementById('div1').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.mens1.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.mens1.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.mens1.naam+' '+huidigeVraag.mens1.achternaam+'<br>'+huidigeVraag.mens1.basiswaarde+'</b>';
-document.getElementById('div2').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.mens2.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.mens2.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.mens2.naam+' '+huidigeVraag.mens2.achternaam+'<br>'+huidigeVraag.mens2.basiswaarde+'</b>';
-document.getElementById('div3').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.mens3.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.mens3.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.mens3.naam+' '+huidigeVraag.mens3.achternaam+'<br>'+huidigeVraag.mens3.basiswaarde+'</b>';
+document.getElementById('div0').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.vak0.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.vak0.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.vak0.naam+' '+huidigeVraag.vak0.achternaam+'<br>'+huidigeVraag.vak0.basiswaarde+'</b>';
+document.getElementById('div1').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.vak1.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.vak1.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.vak1.naam+' '+huidigeVraag.vak1.achternaam+'<br>'+huidigeVraag.vak1.basiswaarde+'</b>';
+document.getElementById('div2').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.vak2.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.vak2.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.vak2.naam+' '+huidigeVraag.vak2.achternaam+'<br>'+huidigeVraag.vak2.basiswaarde+'</b>';
+document.getElementById('div3').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.vak3.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.vak3.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.vak3.naam+' '+huidigeVraag.vak3.achternaam+'<br>'+huidigeVraag.vak3.basiswaarde+'</b>';
 }
 </script>
 <body onload="opzoeken()">
