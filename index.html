@@ -7,10 +7,10 @@
 <body style="background-color:black;" onload="opzoeken()">
 <div style='position:absolute; bottom:2%; right:1%; width:10%;'><img style='width:30px;' src="http://www.bureauhaan.nl/vooroordelen/grafica/LogoWN.png"></div>
 <div id='vraagtekst' style='text-align:center; background-color:black; color:white; font-size:24px'></div>
-<div id='vak0' style='position:absolute; top:20%; right:50%; width:50%; height:30%; overflow:hidden;' onClick="oplossing('vak0')"></div>
-<div id='vak1' style='position:absolute; top:20%; left:50%; width:50%; height:30%; overflow:hidden;' onClick="oplossing('vak1')"></div>
-<div id='vak2' style='position:absolute; top:50%; right:50%; width:50%; height:30%; overflow:hidden;' onClick="oplossing('vak2')"></div>
-<div id='vak3'style='position:absolute; top:50%; left:50%; width:50%; height:30%; overflow:hidden;' onClick="oplossing('vak3')"></div>
+<div id='vak0' style='position:absolute; top:20%; right:50%; width:50%; height:30%; overflow:hidden;'></div>
+<div id='vak1' style='position:absolute; top:20%; left:50%; width:50%; height:30%; overflow:hidden;'></div>
+<div id='vak2' style='position:absolute; top:50%; right:50%; width:50%; height:30%; overflow:hidden;'></div>
+<div id='vak3'style='position:absolute; top:50%; left:50%; width:50%; height:30%; overflow:hidden;'></div>
 <div id='score' style='position:absolute; width:100%; top:82%; text-align:center; font-size:30px; color:white;'  onClick="opzoeken();return false;"></div>
 <div id='punt' style='position:absolute; width:100%; top:90%; text-align:center; font-size:30px; color:green;'  onClick="opzoeken();return false;"></div>
 <script>
@@ -22,16 +22,18 @@ var url="http://www.bureauhaan.nl/vooroordelen/qmaster.php?score="+score;
 $.get(url, function( vraag ) {
 huidigeVraag = vraag;
 score=parseInt(huidigeVraag.vraaginfo.score);
-document.getElementById('vak0').innerHTML = '<img style="width:100%;" src="' + vraag.vak0.foto +'">';
-document.getElementById('vak1').innerHTML = '<img style="width:100%;" src="' + vraag.vak1.foto +'">';
-document.getElementById('vak2').innerHTML = '<img style="width:100%;" src="' + vraag.vak2.foto +'">';
-document.getElementById('vak3').innerHTML = '<img style="width:100%;" src="' + vraag.vak3.foto +'">';
+document.getElementById('vak0').innerHTML = '<img style="width:100%;" src="' + vraag.vak0.foto +'" onClick="oplossing(\'vak0\')">';
+document.getElementById('vak1').innerHTML = '<img style="width:100%;" src="' + vraag.vak1.foto +'" onClick="oplossing(\'vak1\')">';
+document.getElementById('vak2').innerHTML = '<img style="width:100%;" src="' + vraag.vak2.foto +'" onClick="oplossing(\'vak2\')">';
+document.getElementById('vak3').innerHTML = '<img style="width:100%;" src="' + vraag.vak3.foto +'" onClick="oplossing(\'vak3\')">';
 document.getElementById('vraagtekst').innerHTML = huidigeVraag.vraaginfo.basisvraag + huidigeVraag.vraaginfo.basiswaarde + "?";
 document.getElementById('score').innerHTML=score;
 document.getElementById('punt').innerHTML='';
+score=score-10;
 }, "json");}
 
 function oplossing(vaknr){
+score=score+10;
 var puntkleur='green';
 var punt=3;
 document.getElementById('vak0').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.vak0.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.vak0.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.vak0.naam+' '+huidigeVraag.vak0.achternaam+'<br>'+huidigeVraag.vak0.antwoord+'</b>';
@@ -42,7 +44,7 @@ if (vaknr =='vak0' & huidigeVraag.vak0.kleur=='red'){punt=-1;puntkleur='red';}
 if (vaknr =='vak1' & huidigeVraag.vak1.kleur=='red'){punt=-1;puntkleur='red';}
 if (vaknr =='vak2' & huidigeVraag.vak2.kleur=='red'){punt=-1;puntkleur='red';}
 if (vaknr =='vak3' & huidigeVraag.vak3.kleur=='red'){punt=-1;puntkleur='red';}
-document.getElementById('punt').innerHTML='<span style="color:'+puntkleur+'">'+punt+'</span>';
+document.getElementById('punt').innerHTML='<span style="color:'+puntkleur+';"><b>'+punt+'</b></span>';
 score = parseInt(huidigeVraag.vraaginfo.score)+punt;
 }
 </script>
