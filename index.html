@@ -11,8 +11,7 @@
 <div id='vak1' style='position:absolute; top:20%; left:50%; width:50%; height:30%; overflow:hidden;'></div>
 <div id='vak2' style='position:absolute; top:50%; right:50%; width:50%; height:30%; overflow:hidden;'></div>
 <div id='vak3'style='position:absolute; top:50%; left:50%; width:50%; height:30%; overflow:hidden;'></div>
-<div id='score' style='position:absolute; width:100%; top:82%; text-align:center; font-size:30px; color:white;'  onClick="opzoeken();return false;"></div>
-<div id='punt' style='position:absolute; width:100%; top:90%; text-align:center; font-size:30px; color:green;'  onClick="opzoeken();return false;"></div>
+<div id='score' style='position:absolute; width:100%; top:82%; text-align:center; font-size:50px; color:white;'  onClick="opzoeken();return false;"></div>
 <script>
 var score=0;
 var huidigeVraag={};
@@ -29,22 +28,25 @@ document.getElementById('vak3').innerHTML = '<img style="width:100%;" src="' + v
 document.getElementById('vraagtekst').innerHTML = huidigeVraag.vraaginfo.basisvraag + huidigeVraag.vraaginfo.basiswaarde + "?";
 document.getElementById('score').innerHTML=score;
 document.getElementById('punt').innerHTML='';
-score=score-10;
+score=score-1;
 }, "json");}
 
 function oplossing(vaknr){
-score=score+10;
-var puntkleur='green';
-var punt=3;
-document.getElementById('vak0').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.vak0.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.vak0.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.vak0.naam+' '+huidigeVraag.vak0.achternaam+'<br>'+huidigeVraag.vak0.antwoord+'</b>';
-document.getElementById('vak1').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.vak1.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.vak1.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.vak1.naam+' '+huidigeVraag.vak1.achternaam+'<br>'+huidigeVraag.vak1.antwoord+'</b>';
-document.getElementById('vak2').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.vak2.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.vak2.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.vak2.naam+' '+huidigeVraag.vak2.achternaam+'<br>'+huidigeVraag.vak2.antwoord+'</b>';
-document.getElementById('vak3').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.vak3.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.vak3.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.vak3.naam+' '+huidigeVraag.vak3.achternaam+'<br>'+huidigeVraag.vak3.antwoord+'</b>';
-if (vaknr =='vak0' & huidigeVraag.vak0.kleur=='red'){punt=-1;puntkleur='red';}
-if (vaknr =='vak1' & huidigeVraag.vak1.kleur=='red'){punt=-1;puntkleur='red';}
-if (vaknr =='vak2' & huidigeVraag.vak2.kleur=='red'){punt=-1;puntkleur='red';}
-if (vaknr =='vak3' & huidigeVraag.vak3.kleur=='red'){punt=-1;puntkleur='red';}
-document.getElementById('punt').innerHTML='<span style="color:'+puntkleur+';"><b>'+punt+'</b></span>';
+score=score+1;
+var puntkleur='red';
+var punt=-1;
+var vak0punt='<div style="position:absolute; top:50%; left:50%; background-color:none; font-size:30px; color:white;">';
+var vak1punt=vak0punt;
+var vak2punt=vak0punt;
+var vak3punt=vak0punt;
+if (vaknr =='vak0'){if (huidigeVraag.vak0.kleur=='green'){punt=3;vak0punt=vak0punt+'<span style="color:green;">+'+punt;}else{vak0punt=vak0punt+'<span style="color:red;">'+punt+'</div>';}}
+if (vaknr =='vak1'){if (huidigeVraag.vak1.kleur=='green'){punt=3;vak1punt=vak1punt+'<span style="color:green;">+'+punt;}else{vak1punt=vak1punt+'<span style="color:red;">'+punt+'</div>';}}
+if (vaknr =='vak2'){if (huidigeVraag.vak2.kleur=='green'){punt=3;vak2punt=vak2punt+'<span style="color:green;">+'+punt;}else{vak2punt=vak2punt+'<span style="color:red;">'+punt+'</div>';}}
+if (vaknr =='vak3'){if (huidigeVraag.vak3.kleur=='green'){punt=3;vak3punt=vak3punt+'<span style="color:green;">+'+punt;}else{vak3punt=vak3punt+'<span style="color:red;">'+punt+'</div>';}}
+document.getElementById('vak0').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.vak0.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.vak0.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.vak0.naam+' '+huidigeVraag.vak0.achternaam+'<br>'+huidigeVraag.vak0.antwoord+'</div>'+vak0punt+'</b>';
+document.getElementById('vak1').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.vak1.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.vak1.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.vak1.naam+' '+huidigeVraag.vak1.achternaam+'<br>'+huidigeVraag.vak1.antwoord+'</div>'+vak1punt+'</b>';
+document.getElementById('vak2').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.vak2.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.vak2.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.vak2.naam+' '+huidigeVraag.vak2.achternaam+'<br>'+huidigeVraag.vak2.antwoord+'</div>'+vak2punt+'</b>';
+document.getElementById('vak3').innerHTML = '<img style="width:100%; opacity:0.5;" src="' + huidigeVraag.vak3.foto +'"><div style="position:absolute; top:0px; left:0px; width:100%; heigth:100%; background-color:'+huidigeVraag.vak3.kleur+'; text-align:center; color:white; overflow:hidden;"><b>'+huidigeVraag.vak3.naam+' '+huidigeVraag.vak3.achternaam+'<br>'+huidigeVraag.vak3.antwoord+'</div>'+vak3punt+'</b>';
 score = parseInt(huidigeVraag.vraaginfo.score)+punt;
 }
 </script>
